@@ -5,32 +5,46 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from '../screens/HomeScreen';
+import FeedScreen from '../screens/FeedScreen';
+import CreatePostScreen from '../screens/CreatePostScreen';
+import MessagesScreen from '../screens/MessagesScreen';
+import ConversationScreen from '../screens/ConversationScreen';
 import MemberDirectoryScreen from '../screens/MemberDirectoryScreen';
 import MemberProfileScreen from '../screens/MemberProfileScreen';
 
 import { Colors } from '../constants/colors';
+import { conversations } from '../data/mockData';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-// Tab bar icon component using text glyphs (no icon library needed)
-function TabIcon({ label, focused }) {
-  const icons = {
-    Home: focused ? '⌂' : '⌂',
-    Members: focused ? '◈' : '◇',
-    Rounds: focused ? '⛳' : '⛳',
-  };
+const totalUnread = conversations.reduce((n, c) => n + c.unread, 0);
+
+const TAB_ICONS = {
+  Home:     { normal: '⌂',  active: '⌂'  },
+  Feed:     { normal: '◻',  active: '◼'  },
+  Messages: { normal: '✉',  active: '✉'  },
+  Members:  { normal: '◇',  active: '◈'  },
+};
+
+function TabIcon({ name, focused }) {
+  const icons = TAB_ICONS[name] || { normal: '●', active: '●' };
+  const isMessages = name === 'Messages';
 
   return (
-    <View style={styles.tabIconContainer}>
-      <Text style={[styles.tabIconText, focused && styles.tabIconFocused]}>
-        {icons[label]}
+    <View style={styles.tabIconWrapper}>
+      <Text style={[styles.tabIconText, focused && styles.tabIconTextActive]}>
+        {focused ? icons.active : icons.normal}
       </Text>
+      {isMessages && totalUnread > 0 && (
+        <View style={styles.tabBadge}>
+          <Text style={styles.tabBadgeText}>{totalUnread}</Text>
+        </View>
+      )}
     </View>
   );
 }
 
-// Stack navigator wrapping Member Directory so Profile can push on top
 function MembersStack() {
   return (
     <Stack.Navigator
@@ -46,6 +60,40 @@ function MembersStack() {
   );
 }
 
+function FeedStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        contentStyle: { backgroundColor: Colors.background },
+        animation: 'slide_from_bottom',
+      }}
+    >
+      <Stack.Screen name="FeedMain" component={FeedScreen} />
+      <Stack.Screen
+        name="CreatePost"
+        component={CreatePostScreen}
+        options={{ presentation: 'modal' }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function MessagesStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        contentStyle: { backgroundColor: Colors.background },
+        animation: 'slide_from_right',
+      }}
+    >
+      <Stack.Screen name="MessagesList" component={MessagesScreen} />
+      <Stack.Screen name="Conversation" component={ConversationScreen} />
+    </Stack.Navigator>
+  );
+}
+
 export default function AppNavigator() {
   return (
     <NavigationContainer>
@@ -57,20 +105,14 @@ export default function AppNavigator() {
           tabBarInactiveTintColor: Colors.charcoal.pale,
           tabBarLabelStyle: styles.tabLabel,
           tabBarIcon: ({ focused }) => (
-            <TabIcon label={route.name} focused={focused} />
+            <TabIcon name={route.name} focused={focused} />
           ),
         })}
       >
-        <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ tabBarLabel: 'Home' }}
-        />
-        <Tab.Screen
-          name="Members"
-          component={MembersStack}
-          options={{ tabBarLabel: 'Members' }}
-        />
+        <Tab.Screen name="Home" component={HomeScreen} options={{ tabBarLabel: 'Home' }} />
+        <Tab.Screen name="Feed" component={FeedStack}    options={{ tabBarLabel: 'Feed' }} />
+        <Tab.Screen name="Messages" component={MessagesStack} options={{ tabBarLabel: 'Messages' }} />
+        <Tab.Screen name="Members" component={MembersStack}  options={{ tabBarLabel: 'Members' }} />
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -83,27 +125,29 @@ const styles = StyleSheet.create({
     elevation: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: -4 },
-    shadowOpacity: 0.15,
-    shadowRadius: 12,
+    shadowOpacity: 0.18,
+    shadowRadius: 14,
     height: Platform.OS === 'ios' ? 85 : 65,
     paddingBottom: Platform.OS === 'ios' ? 25 : 10,
     paddingTop: 8,
   },
-  tabIconContainer: {
+  tabIconWrapper: { position: 'relative', alignItems: 'center', justifyContent: 'center' },
+  tabIconText: { fontSize: 20, color: Colors.charcoal.pale },
+  tabIconTextActive: { color: Colors.gold.primary },
+  tabBadge: {
+    position: 'absolute',
+    top: -4,
+    right: -10,
+    backgroundColor: Colors.gold.primary,
+    borderRadius: 8,
+    minWidth: 16,
+    height: 16,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 3,
+    borderWidth: 1.5,
+    borderColor: Colors.green.deep,
   },
-  tabIconText: {
-    fontSize: 20,
-    color: Colors.charcoal.pale,
-  },
-  tabIconFocused: {
-    color: Colors.gold.primary,
-  },
-  tabLabel: {
-    fontSize: 11,
-    fontWeight: '600',
-    letterSpacing: 0.5,
-    marginTop: 2,
-  },
+  tabBadgeText: { fontSize: 9, fontWeight: '800', color: Colors.charcoal.dark },
+  tabLabel: { fontSize: 11, fontWeight: '600', letterSpacing: 0.3, marginTop: 1 },
 });

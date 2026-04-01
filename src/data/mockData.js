@@ -8,6 +8,7 @@ export const currentUser = {
   club: 'Pebble Ridge Golf Club',
   avatar: null,
   initials: 'JW',
+  avatarColor: '#2C3E7A',
 };
 
 export const members = [
@@ -56,7 +57,7 @@ export const members = [
     company: 'Hargrove & Associates',
     handicap: 18,
     memberSince: 2020,
-    bio: 'Finance executive who discovered golf three years ago and hasn't looked back. Always up for a friendly wager.',
+    bio: 'Finance executive who discovered golf three years ago and hasn\'t looked back. Always up for a friendly wager.',
     interests: ['Scramble', 'Art Collecting', 'Running', 'Jazz'],
     golfPreferences: {
       preferredTeeTime: 'Weekend Afternoon',
@@ -176,3 +177,257 @@ export const upcomingRounds = [
 ];
 
 export const suggestedConnections = members.filter((m) => !m.connected).slice(0, 3);
+
+// ─── Conversations / Messaging ─────────────────────────────────────────────────
+
+export const conversations = [
+  {
+    id: 'conv-1',
+    participantId: 'member-2',  // Robert Kingsley
+    lastMessage: 'Still on for Saturday? I can get us a cart.',
+    lastMessageTime: '9:42 AM',
+    lastMessageDate: 'Today',
+    unread: 2,
+    messages: [
+      {
+        id: 'msg-1',
+        senderId: 'member-2',
+        text: 'James! Great playing with you last week.',
+        time: '2:15 PM',
+        date: 'Yesterday',
+      },
+      {
+        id: 'msg-2',
+        senderId: 'user-0',
+        text: 'Robert — that back nine was something else. We should do it again soon.',
+        time: '2:30 PM',
+        date: 'Yesterday',
+      },
+      {
+        id: 'msg-3',
+        senderId: 'member-2',
+        text: 'Agreed. Harrington mentioned a four-ball this weekend.',
+        time: '2:32 PM',
+        date: 'Yesterday',
+      },
+      {
+        id: 'msg-4',
+        senderId: 'user-0',
+        text: 'Saturday works for me. What time is he thinking?',
+        time: '2:45 PM',
+        date: 'Yesterday',
+      },
+      {
+        id: 'msg-5',
+        senderId: 'member-2',
+        text: 'Still on for Saturday? I can get us a cart.',
+        time: '9:42 AM',
+        date: 'Today',
+      },
+    ],
+  },
+  {
+    id: 'conv-2',
+    participantId: 'member-5',  // Margaret Ellis
+    lastMessage: 'Thanks for the referral, really appreciate it.',
+    lastMessageTime: 'Yesterday',
+    lastMessageDate: 'Yesterday',
+    unread: 0,
+    messages: [
+      {
+        id: 'msg-6',
+        senderId: 'user-0',
+        text: 'Margaret, I passed your name along to a colleague who was looking for a specialist. Hope that\'s okay.',
+        time: '10:00 AM',
+        date: 'Mon',
+      },
+      {
+        id: 'msg-7',
+        senderId: 'member-5',
+        text: 'Of course — thank you so much, James.',
+        time: '11:30 AM',
+        date: 'Mon',
+      },
+      {
+        id: 'msg-8',
+        senderId: 'member-5',
+        text: 'Thanks for the referral, really appreciate it.',
+        time: '3:20 PM',
+        date: 'Yesterday',
+      },
+    ],
+  },
+  {
+    id: 'conv-3',
+    participantId: 'member-6',  // Thomas Nakamura
+    lastMessage: 'Sent you the deck — let me know your thoughts before Thursday.',
+    lastMessageTime: 'Mon',
+    lastMessageDate: 'Mon',
+    unread: 1,
+    messages: [
+      {
+        id: 'msg-9',
+        senderId: 'member-6',
+        text: 'James, great conversation at the cocktail evening. I\'d love to continue our discussion about the fund.',
+        time: '9:00 AM',
+        date: 'Sun',
+      },
+      {
+        id: 'msg-10',
+        senderId: 'user-0',
+        text: 'Thomas — let\'s do it. I\'m genuinely interested in what Pacific Crest is doing in emerging markets.',
+        time: '10:15 AM',
+        date: 'Sun',
+      },
+      {
+        id: 'msg-11',
+        senderId: 'member-6',
+        text: 'Sent you the deck — let me know your thoughts before Thursday.',
+        time: '8:45 AM',
+        date: 'Mon',
+      },
+    ],
+  },
+  {
+    id: 'conv-4',
+    participantId: 'member-1',  // Catherine Ashford
+    lastMessage: 'I\'ll have the NDA reviewed by end of week.',
+    lastMessageTime: 'Apr 28',
+    lastMessageDate: 'Apr 28',
+    unread: 0,
+    messages: [
+      {
+        id: 'msg-12',
+        senderId: 'user-0',
+        text: 'Catherine, are you available to review a partnership agreement? Nothing urgent.',
+        time: '4:00 PM',
+        date: 'Apr 27',
+      },
+      {
+        id: 'msg-13',
+        senderId: 'member-1',
+        text: 'Happy to help. Send it over when ready.',
+        time: '4:45 PM',
+        date: 'Apr 27',
+      },
+      {
+        id: 'msg-14',
+        senderId: 'member-1',
+        text: 'I\'ll have the NDA reviewed by end of week.',
+        time: '9:10 AM',
+        date: 'Apr 28',
+      },
+    ],
+  },
+];
+
+// ─── Feed / Posts ──────────────────────────────────────────────────────────────
+
+export const feedPosts = [
+  {
+    id: 'post-1',
+    authorId: 'member-2',
+    timestamp: '2h ago',
+    text: 'Just closed a significant deal with a partner I met right here at Pebble Ridge. Sometimes the best boardrooms have 18 holes.',
+    tags: [
+      { memberId: 'member-4', name: 'William Harrington', company: 'Harrington Group' },
+    ],
+    likes: 24,
+    comments: [
+      {
+        id: 'cmt-1',
+        authorId: 'member-4',
+        text: 'Honored to call you a partner, Robert. Here\'s to many more rounds and deals ahead.',
+        timestamp: '1h ago',
+      },
+      {
+        id: 'cmt-2',
+        authorId: 'user-0',
+        text: 'Congratulations to both of you. This is exactly what ClubLink is all about.',
+        timestamp: '45m ago',
+      },
+    ],
+    liked: false,
+    category: 'business',
+  },
+  {
+    id: 'post-2',
+    authorId: 'member-5',
+    timestamp: '5h ago',
+    text: 'Thrilled to announce that St. Clair Medical Center has been named a Top 10 Cardiac Care facility nationally. Grateful for an incredible team — and grateful that the fairways help me decompress after long surgeries.',
+    tags: [],
+    likes: 41,
+    comments: [
+      {
+        id: 'cmt-3',
+        authorId: 'user-0',
+        text: 'Incredible achievement, Margaret. Well deserved.',
+        timestamp: '4h ago',
+      },
+      {
+        id: 'cmt-4',
+        authorId: 'member-2',
+        text: 'Congratulations! Pebble Ridge is lucky to have you as a member.',
+        timestamp: '3h ago',
+      },
+    ],
+    liked: true,
+    category: 'announcement',
+  },
+  {
+    id: 'post-3',
+    authorId: 'user-0',
+    timestamp: '1d ago',
+    text: 'Had a phenomenal round this morning with two of the sharpest people I know. Stroke play on the championship course — 74, personal best for the year. Looking forward to the rematch.',
+    tags: [
+      { memberId: 'member-2', name: 'Robert Kingsley', company: 'Kingsley Ventures' },
+      { memberId: 'member-6', name: 'Thomas Nakamura', company: 'Pacific Crest Capital' },
+    ],
+    likes: 18,
+    comments: [
+      {
+        id: 'cmt-5',
+        authorId: 'member-6',
+        text: 'Beginner\'s luck, James. Next time I\'ll actually warm up.',
+        timestamp: '23h ago',
+      },
+    ],
+    liked: false,
+    category: 'golf',
+  },
+  {
+    id: 'post-4',
+    authorId: 'member-3',
+    timestamp: '2d ago',
+    text: 'Hargrove & Associates is proud to launch our new Private Wealth Advisory division, focused exclusively on ultra-high-net-worth families. If you\'d like to learn more, I would love to connect over a round.',
+    tags: [],
+    likes: 33,
+    comments: [
+      {
+        id: 'cmt-6',
+        authorId: 'member-1',
+        text: 'Congratulations, Sophia! Big milestone for the firm.',
+        timestamp: '2d ago',
+      },
+      {
+        id: 'cmt-7',
+        authorId: 'user-0',
+        text: 'Exciting news. Let\'s find time on the calendar.',
+        timestamp: '1d ago',
+      },
+    ],
+    liked: true,
+    category: 'business',
+  },
+  {
+    id: 'post-5',
+    authorId: 'member-4',
+    timestamp: '3d ago',
+    text: 'Pebble Ridge at sunrise is something else entirely. Grateful for mornings like this — and for being part of a club that values excellence both on and off the course.',
+    tags: [],
+    likes: 57,
+    comments: [],
+    liked: false,
+    category: 'golf',
+  },
+];
