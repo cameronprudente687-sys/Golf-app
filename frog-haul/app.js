@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initForm();
   initFAQ();
   initScrollAnimations();
-  initFloatingButton();
+  initMobileBottomBar();
   updateContactLinks();
 });
 
@@ -292,12 +292,11 @@ function initScrollAnimations() {
   elements.forEach(el => observer.observe(el));
 }
 
-// ---------- Floating Text Button ----------
-function initFloatingButton() {
-  const btn = document.getElementById("floatingBtn");
-  if (!btn) return;
+// ---------- Mobile Bottom Bar ----------
+function initMobileBottomBar() {
+  const bar = document.getElementById("mobileBottomBar");
+  if (!bar) return;
 
-  // Show after scrolling past hero
   const hero = document.getElementById("hero");
   const footer = document.querySelector(".footer");
 
@@ -307,8 +306,8 @@ function initFloatingButton() {
     const windowH = window.innerHeight;
 
     const pastHero = heroBottom < 0;
-    const nearFooter = footerTop < windowH + 100;
+    const nearFooter = footerTop < windowH + 80;
 
-    btn.classList.toggle("visible", pastHero && !nearFooter);
+    bar.classList.toggle("visible", pastHero && !nearFooter);
   }, { passive: true });
 }

@@ -1246,40 +1246,310 @@ input, textarea, select { font-family: inherit; font-size: 1rem; }
 }
 
 /* ============================================
-   FLOATING TEXT BUTTON (mobile)
+   ESTIMATOR NOTE (sub line)
    ============================================ */
-.floating-text-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 16px;
-  z-index: 900;
+.estimator-note-sub {
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--gray-400);
+  margin-top: -16px;
+  margin-bottom: 20px;
+}
+
+/* ============================================
+   FORM SELECT (dorm dropdown)
+   ============================================ */
+.form-group select {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  background: var(--gray-50);
+  color: var(--gray-900);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23A1A1AA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+.form-group select:hover {
+  border-color: var(--gray-300);
+}
+.form-group select:focus {
+  outline: none;
+  border-color: var(--purple-500);
+  background-color: var(--white);
+  box-shadow: 0 0 0 3px rgba(123,63,184,0.1);
+}
+.form-group select option[value=""][disabled] {
+  color: var(--gray-400);
+}
+
+/* Field hint (below date input) */
+.field-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  font-weight: 500;
+}
+
+/* ============================================
+   PAYMENT STRIP
+   ============================================ */
+.payment-strip {
+  padding: 20px 0;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.payment-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.payment-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.payment-methods {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 20px;
-  background: linear-gradient(135deg, var(--accent) 0%, #FF8B5E 100%);
-  color: var(--white);
+}
+
+.payment-method {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.payment-sep {
+  color: var(--gray-300);
+  font-size: 0.7rem;
+}
+
+/* ============================================
+   TESTIMONIALS
+   ============================================ */
+.testimonials-section {
+  background: var(--white);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  transition: all 0.3s var(--ease-out);
+}
+.testimonial-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--purple-200);
+}
+
+.testimonial-stars {
+  color: #F59E0B;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.testimonial-text {
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--purple-100);
+  color: var(--purple-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.85rem;
   font-weight: 700;
-  border-radius: 50px;
-  box-shadow: 0 4px 20px rgba(255,107,53,0.35);
+  flex-shrink: 0;
+}
+
+.testimonial-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.testimonial-detail {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.about-section {
+  background: var(--gray-50);
+}
+
+.about-card {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-icon {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+}
+
+.about-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.about-card p {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   CTA MICRO TEXT
+   ============================================ */
+.cta-micro {
+  margin-top: 16px;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 500;
+}
+
+/* ============================================
+   THANK YOU — Extra polish
+   ============================================ */
+.thank-you-cta {
+  width: 100%;
+  max-width: 280px;
+}
+
+.thank-you-payment {
+  margin-top: 16px;
+  font-size: 0.78rem;
+  color: var(--gray-400) !important;
+  font-weight: 500;
+}
+
+/* ============================================
+   STICKY MOBILE BOTTOM BAR
+   ============================================ */
+.mobile-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 950;
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--gray-200);
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(100%);
   transition: all 0.3s var(--ease-out);
   pointer-events: none;
-  -webkit-tap-highlight-color: transparent;
 }
-.floating-text-btn.visible {
+.mobile-bottom-bar.visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
-.floating-text-btn:hover {
-  box-shadow: 0 6px 28px rgba(255,107,53,0.45);
-  transform: translateY(-2px);
+
+.bottom-bar-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: all 0.2s var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
 }
-.floating-text-btn:active {
-  transform: translateY(0);
+
+.bottom-bar-primary {
+  background: linear-gradient(135deg, var(--purple-700) 0%, var(--purple-600) 100%);
+  color: var(--white);
+}
+.bottom-bar-primary:active {
+  transform: scale(0.97);
+}
+
+.bottom-bar-accent {
+  background: linear-gradient(135deg, var(--accent) 0%, #FF8B5E 100%);
+  color: var(--white);
+}
+.bottom-bar-accent:active {
+  transform: scale(0.97);
+}
+
+/* ============================================
+   RESPONSIVE — Mobile body padding for bottom bar
+   ============================================ */
+@media (max-width: 639px) {
+  body { padding-bottom: 72px; }
+  .footer { padding-bottom: 80px; }
 }
 
 /* ============================================
@@ -1298,6 +1568,8 @@ input, textarea, select { font-family: inherit; font-size: 1rem; }
 
   .why-grid { grid-template-columns: repeat(2, 1fr); }
 
+  .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+
   .form-grid { grid-template-columns: repeat(2, 1fr); }
   .full-width { grid-column: 1 / -1; }
 
@@ -1310,7 +1582,7 @@ input, textarea, select { font-family: inherit; font-size: 1rem; }
   .estimator-cta { flex: 1; }
   .estimator-text-btn { flex: 1; }
 
-  .floating-text-btn { display: none; }
+  .mobile-bottom-bar { display: none !important; }
 }
 
 /* ============================================
