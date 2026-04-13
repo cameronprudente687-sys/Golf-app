@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -33,49 +33,49 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="hero">
+    <div class="hero-bg-shapes" aria-hidden="true">
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="hero-shape hero-shape-3"></div>
+    </div>
     <div class="container hero-grid">
       <div class="hero-content">
-        <h1>Fast, Affordable Dorm Move-Out Help for TCU Students</h1>
-        <p class="hero-sub">We help TCU students move furniture, junk, and heavy items out of dorms with simple pricing and easy request booking.</p>
-        <div class="hero-btns">
-          <a href="#estimator" class="btn btn-primary btn-lg">Get My Estimate</a>
-          <a href="sms:+18175551234" class="btn btn-accent btn-lg">Text Us Now</a>
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          TCU Students Only
         </div>
+        <h1>Don't Stress Your<br>Dorm Move-Out</h1>
+        <p class="hero-sub">We move your furniture, haul your junk, and carry the heavy stuff — so you don't have to.</p>
+        <div class="hero-btns">
+          <a href="#estimator" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            Get My Estimate
+          </a>
+          <a href="sms:+18175551234" class="btn btn-accent btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Text Us Now
+          </a>
+        </div>
+        <p class="hero-micro">Free estimates &middot; No commitment &middot; Fast response</p>
       </div>
       <div class="hero-visual">
-        <!-- Moving-themed SVG illustration -->
-        <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-illustration">
-          <!-- Floor -->
-          <rect x="20" y="260" width="360" height="4" rx="2" fill="#E8E0F0"/>
-          <!-- Large box -->
-          <rect x="60" y="160" width="120" height="100" rx="8" fill="#4D1979" opacity="0.9"/>
-          <rect x="60" y="160" width="120" height="20" rx="8" fill="#6B2FA0"/>
-          <line x1="100" y1="195" x2="140" y2="195" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-          <line x1="100" y1="205" x2="130" y2="205" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-          <!-- Medium box -->
-          <rect x="200" y="190" width="90" height="70" rx="6" fill="#7B3FB8" opacity="0.85"/>
-          <rect x="200" y="190" width="90" height="14" rx="6" fill="#9B5FD8"/>
-          <line x1="230" y1="215" x2="260" y2="215" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-          <!-- Small box on top -->
-          <rect x="215" y="140" width="60" height="50" rx="5" fill="#A66DD8" opacity="0.8"/>
-          <rect x="215" y="140" width="60" height="12" rx="5" fill="#BF8DE8"/>
-          <!-- Couch shape -->
-          <rect x="80" y="110" width="80" height="50" rx="12" fill="#E8D5F5" opacity="0.7"/>
-          <rect x="70" y="130" width="14" height="30" rx="7" fill="#D4B8E8" opacity="0.7"/>
-          <rect x="160" y="130" width="14" height="30" rx="7" fill="#D4B8E8" opacity="0.7"/>
-          <!-- Dolly / hand truck -->
-          <rect x="310" y="180" width="8" height="80" rx="2" fill="#4D1979"/>
-          <rect x="300" y="175" width="28" height="8" rx="4" fill="#4D1979"/>
-          <circle cx="308" cy="264" r="12" fill="#6B2FA0" stroke="#4D1979" stroke-width="3"/>
-          <circle cx="326" cy="264" r="12" fill="#6B2FA0" stroke="#4D1979" stroke-width="3"/>
-          <rect x="302" y="220" width="24" height="40" rx="4" fill="#9B5FD8" opacity="0.6"/>
-          <!-- Decorative circles -->
-          <circle cx="340" cy="120" r="20" fill="#F3EAFC" opacity="0.5"/>
-          <circle cx="50" cy="140" r="15" fill="#F3EAFC" opacity="0.4"/>
-          <circle cx="280" cy="100" r="10" fill="#E8D5F5" opacity="0.5"/>
-          <!-- Frog icon on large box -->
-          <text x="120" y="240" font-size="32" text-anchor="middle">&#x1F438;</text>
-        </svg>
+        <div class="hero-visual-card">
+          <div class="hero-card-header">
+            <span class="hero-card-icon">&#x1F438;</span>
+            <div>
+              <div class="hero-card-title">Your Estimate</div>
+              <div class="hero-card-sub">3 items selected</div>
+            </div>
+          </div>
+          <div class="hero-card-items">
+            <div class="hero-card-row"><span>&#x1F6CB; Couch</span><span>$75</span></div>
+            <div class="hero-card-row"><span>&#x1F4E6; Boxes (2)</span><span>$30</span></div>
+            <div class="hero-card-row"><span>&#x2744;&#xFE0F; Mini Fridge</span><span>$35</span></div>
+          </div>
+          <div class="hero-card-total">
+            <span>Total</span><span>$140</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -84,21 +84,41 @@
   <section class="trust-bar">
     <div class="container">
       <div class="trust-grid">
-        <div class="trust-item">
-          <div class="trust-icon">&#x1F3EB;</div>
-          <span>TCU Dorms Only</span>
+        <div class="trust-item animate-on-scroll">
+          <div class="trust-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <span class="trust-label">TCU Dorms Only</span>
+            <span class="trust-desc">We know every building on campus</span>
+          </div>
         </div>
-        <div class="trust-item">
-          <div class="trust-icon">&#x1F4B0;</div>
-          <span>Affordable Student Pricing</span>
+        <div class="trust-item animate-on-scroll">
+          <div class="trust-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div>
+            <span class="trust-label">Student Pricing</span>
+            <span class="trust-desc">Affordable rates, no hidden fees</span>
+          </div>
         </div>
-        <div class="trust-item">
-          <div class="trust-icon">&#x26A1;</div>
-          <span>Fast Response</span>
+        <div class="trust-item animate-on-scroll">
+          <div class="trust-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <span class="trust-label">Fast Response</span>
+            <span class="trust-desc">Usually within a few hours</span>
+          </div>
         </div>
-        <div class="trust-item">
-          <div class="trust-icon">&#x1F4AA;</div>
-          <span>Heavy Item Help</span>
+        <div class="trust-item animate-on-scroll">
+          <div class="trust-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+          </div>
+          <div>
+            <span class="trust-label">Heavy Item Help</span>
+            <span class="trust-desc">We do the heavy lifting for you</span>
+          </div>
         </div>
       </div>
     </div>
@@ -107,25 +127,34 @@
   <!-- ============ HOW IT WORKS ============ -->
   <section class="section how-it-works" id="how-it-works">
     <div class="container">
-      <h2 class="section-title">How It Works</h2>
+      <div class="section-header">
+        <span class="section-tag">Simple Process</span>
+        <h2 class="section-title">How It Works</h2>
+      </div>
       <div class="steps-grid">
-        <div class="step-card">
+        <div class="step-card animate-on-scroll">
           <div class="step-number">1</div>
-          <div class="step-icon">&#x1F4CB;</div>
+          <div class="step-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/></svg>
+          </div>
           <h3>Select Your Items</h3>
-          <p>Pick what you need moved using our simple estimator.</p>
+          <p>Use our estimator to pick what you need moved.</p>
         </div>
-        <div class="step-card">
+        <div class="step-card animate-on-scroll">
           <div class="step-number">2</div>
-          <div class="step-icon">&#x1F4B2;</div>
-          <h3>Get an Instant Estimate</h3>
-          <p>See your estimated price update live as you add items.</p>
+          <div class="step-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3>See Your Price</h3>
+          <p>Watch your estimate update live as you add items.</p>
         </div>
-        <div class="step-card">
+        <div class="step-card animate-on-scroll">
           <div class="step-number">3</div>
-          <div class="step-icon">&#x2705;</div>
-          <h3>Submit Your Request</h3>
-          <p>Fill out a quick form and we'll get back to you fast.</p>
+          <div class="step-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3>Submit &amp; Done</h3>
+          <p>Send your request and we'll reach out fast.</p>
         </div>
       </div>
     </div>
@@ -134,21 +163,33 @@
   <!-- ============ PRICE ESTIMATOR ============ -->
   <section class="section estimator-section" id="estimator">
     <div class="container">
-      <h2 class="section-title">Price Estimator</h2>
-      <p class="section-subtitle">Add your items below to get an instant estimate.</p>
+      <div class="section-header">
+        <span class="section-tag">Instant Pricing</span>
+        <h2 class="section-title">Build Your Estimate</h2>
+        <p class="section-subtitle">Tap items to add them. Your total updates instantly.</p>
+      </div>
 
       <div class="estimator-card">
         <div class="estimator-items" id="estimatorItems">
-          <!-- Items are generated by JS -->
+          <!-- Items generated by JS -->
         </div>
 
-        <div class="estimator-total-bar">
-          <div class="total-label">Estimated Total</div>
+        <div class="estimator-total-bar" id="estimatorTotal">
+          <div class="total-left">
+            <div class="total-label">Estimated Total</div>
+            <div class="total-items-count" id="totalItemsCount">0 items</div>
+          </div>
           <div class="total-amount" id="totalAmount">$0</div>
         </div>
         <p class="estimator-note">Final price may vary depending on item size, stairs, and difficulty.</p>
 
-        <a href="#request-form" class="btn btn-primary btn-lg estimator-cta">Book This Estimate</a>
+        <div class="estimator-actions">
+          <a href="#request-form" class="btn btn-primary btn-lg estimator-cta">Book This Estimate</a>
+          <a href="sms:+18175551234" class="btn btn-outline btn-lg estimator-text-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Or Text Us Instead
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -156,12 +197,15 @@
   <!-- ============ REQUEST FORM ============ -->
   <section class="section form-section" id="request-form">
     <div class="container">
-      <h2 class="section-title">Request a Move</h2>
-      <p class="section-subtitle">Fill out the form below and we'll get back to you quickly.</p>
+      <div class="section-header">
+        <span class="section-tag">Book Your Move</span>
+        <h2 class="section-title">Request a Move</h2>
+        <p class="section-subtitle">Tell us what you need and we'll handle the rest.</p>
+      </div>
 
       <div class="form-card">
         <form id="requestForm" action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST">
-          <!-- FormSubmit config (hidden fields) -->
+          <!-- FormSubmit config -->
           <input type="hidden" name="_subject" value="New Frog Haul Move Request">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -169,7 +213,7 @@
 
           <div class="form-grid">
             <div class="form-group">
-              <label for="fullName">Full Name</label>
+              <label for="fullName">Full Name <span class="required-star">*</span></label>
               <input type="text" id="fullName" name="Full Name" placeholder="Your full name" required>
             </div>
 
@@ -184,8 +228,8 @@
             </div>
 
             <div class="form-group">
-              <label for="dorm">Dorm / Building</label>
-              <input type="text" id="dorm" name="Dorm/Building" placeholder="e.g. Clark Hall">
+              <label for="dorm">Dorm / Building <span class="required-star">*</span></label>
+              <input type="text" id="dorm" name="Dorm/Building" placeholder="e.g. Clark Hall" required>
             </div>
 
             <div class="form-group">
@@ -194,41 +238,54 @@
             </div>
 
             <div class="form-group">
-              <label for="moveDate">Requested Date</label>
+              <label for="moveDate">Requested Date <span class="required-star">*</span></label>
               <input type="date" id="moveDate" name="Requested Date" required>
             </div>
 
             <div class="form-group full-width">
               <label for="items">Items to Move</label>
-              <textarea id="items" name="Items to Move" rows="3" placeholder="e.g. 1 couch, 2 boxes, 1 mini fridge"></textarea>
+              <textarea id="items" name="Items to Move" rows="3" placeholder="e.g. 1 couch, 2 boxes, 1 mini fridge (auto-filled from estimator)"></textarea>
             </div>
 
             <div class="form-group full-width">
-              <label for="destination">Destination / Where Items Are Going</label>
-              <input type="text" id="destination" name="Destination" placeholder="e.g. storage unit on Berry St, dumpster, parent's truck">
+              <label for="destination">Where Are Items Going?</label>
+              <input type="text" id="destination" name="Destination" placeholder="e.g. storage unit, dumpster, parent's truck">
             </div>
 
             <div class="form-group full-width">
-              <label for="notes">Special Instructions / Notes</label>
-              <textarea id="notes" name="Special Instructions" rows="2" placeholder="Anything else we should know?"></textarea>
+              <label for="notes">Special Instructions</label>
+              <textarea id="notes" name="Special Instructions" rows="2" placeholder="Stairs, tight hallways, anything we should know?"></textarea>
             </div>
           </div>
 
           <!-- Hidden field for estimate -->
           <input type="hidden" id="estimateField" name="Estimated Total" value="$0">
 
-          <p class="form-helper">Want to coordinate an exact time? Text us after submitting your request.</p>
-
-          <button type="submit" class="btn btn-primary btn-lg form-submit-btn">Submit Request</button>
+          <div class="form-footer">
+            <p class="form-helper">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              Want a specific time? Text us after submitting.
+            </p>
+            <button type="submit" class="btn btn-primary btn-xl form-submit-btn">
+              Submit Move Request
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
         </form>
 
-        <!-- Thank you message (hidden by default) -->
+        <!-- Thank you message -->
         <div class="thank-you-message" id="thankYou">
-          <div class="thank-you-icon">&#x1F389;</div>
-          <h3>Request Submitted!</h3>
-          <p>Thanks for choosing Frog Haul. We'll be in touch soon!</p>
-          <p class="thank-you-sub">Want a specific time? Text us now:</p>
-          <a href="sms:+18175551234" class="btn btn-accent btn-lg">Text Us Now</a>
+          <div class="thank-you-check">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3>You're All Set!</h3>
+          <p>We received your request and will reach out soon to confirm details.</p>
+          <div class="thank-you-divider"></div>
+          <p class="thank-you-sub">Want to lock in a specific time?</p>
+          <a href="sms:+18175551234" class="btn btn-accent btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Text Us Now
+          </a>
         </div>
       </div>
     </div>
@@ -237,31 +294,52 @@
   <!-- ============ WHY CHOOSE US ============ -->
   <section class="section why-section" id="why-us">
     <div class="container">
-      <h2 class="section-title">Why Students Choose Frog Haul</h2>
+      <div class="section-header">
+        <span class="section-tag">Why Us</span>
+        <h2 class="section-title">Built for TCU Move-Outs</h2>
+      </div>
       <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon">&#x1F3EB;</div>
-          <h4>Built for TCU Dorm Move-Outs</h4>
+        <div class="why-card animate-on-scroll">
+          <div class="why-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h4>Made for TCU Dorms</h4>
+          <p>We know the buildings, the elevators, and the move-out process.</p>
         </div>
-        <div class="why-card">
-          <div class="why-icon">&#x1F4B0;</div>
-          <h4>Affordable Pricing</h4>
+        <div class="why-card animate-on-scroll">
+          <div class="why-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h4>Student-Friendly Pricing</h4>
+          <p>Transparent pricing designed for college budgets.</p>
         </div>
-        <div class="why-card">
-          <div class="why-icon">&#x1F4CA;</div>
-          <h4>Easy Estimate Tool</h4>
+        <div class="why-card animate-on-scroll">
+          <div class="why-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="12" y2="17"/></svg>
+          </div>
+          <h4>Instant Estimates</h4>
+          <p>Know your cost before you commit — no surprises.</p>
         </div>
-        <div class="why-card">
-          <div class="why-icon">&#x1F4AA;</div>
-          <h4>Heavy Lifting Help</h4>
+        <div class="why-card animate-on-scroll">
+          <div class="why-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 00-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+          </div>
+          <h4>We Do the Heavy Lifting</h4>
+          <p>Couches, dressers, fridges — we handle it all.</p>
         </div>
-        <div class="why-card">
-          <div class="why-icon">&#x1F4AC;</div>
-          <h4>Fast Communication</h4>
+        <div class="why-card animate-on-scroll">
+          <div class="why-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h4>Quick Communication</h4>
+          <p>Text us anytime. We respond fast — no phone tag.</p>
         </div>
-        <div class="why-card">
-          <div class="why-icon">&#x1F4F1;</div>
-          <h4>Simple Booking Process</h4>
+        <div class="why-card animate-on-scroll">
+          <div class="why-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h4>Simple Booking</h4>
+          <p>Pick your day, tell us what to move, done.</p>
         </div>
       </div>
     </div>
@@ -270,12 +348,17 @@
   <!-- ============ FAQ ============ -->
   <section class="section faq-section" id="faq">
     <div class="container">
-      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="section-header">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            Do you only serve TCU dorms?
-            <span class="faq-chevron">&#x25BC;</span>
+            <span>Do you only serve TCU dorms?</span>
+            <span class="faq-chevron">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
           </button>
           <div class="faq-answer">
             <p>Yes! Frog Haul is built specifically for TCU dorm students. We know the campus, the buildings, and exactly what students need during move-out.</p>
@@ -283,38 +366,46 @@
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            How do I schedule an exact time?
-            <span class="faq-chevron">&#x25BC;</span>
+            <span>How do I schedule an exact time?</span>
+            <span class="faq-chevron">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
           </button>
           <div class="faq-answer">
-            <p>When you submit your request, just pick the day you need us. If you want to coordinate a specific time, text us directly and we'll work it out with you.</p>
+            <p>Just pick the day you need us on the form. If you want to coordinate a specific time, text us directly and we'll work it out with you.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            How is pricing calculated?
-            <span class="faq-chevron">&#x25BC;</span>
+            <span>How is pricing calculated?</span>
+            <span class="faq-chevron">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
           </button>
           <div class="faq-answer">
-            <p>Our estimator gives you a starting price based on the items you select. Final price may vary slightly based on item size, stairs, and difficulty of the move.</p>
+            <p>Our estimator gives you a starting price based on items you select. Final price may vary slightly based on item size, stairs, and difficulty.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            Can you move junk and heavy items too?
-            <span class="faq-chevron">&#x25BC;</span>
+            <span>Can you move junk and heavy items too?</span>
+            <span class="faq-chevron">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
           </button>
           <div class="faq-answer">
-            <p>Absolutely. Junk removal, trash haul, heavy furniture — we handle it all. Just let us know what you've got and we'll take care of it.</p>
+            <p>Absolutely. Junk removal, trash haul, heavy furniture — we handle it all. Just let us know what you've got.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            When will I hear back after I submit?
-            <span class="faq-chevron">&#x25BC;</span>
+            <span>When will I hear back after I submit?</span>
+            <span class="faq-chevron">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </span>
           </button>
           <div class="faq-answer">
-            <p>We respond fast — usually within a few hours. For the quickest response, text us directly after submitting your request.</p>
+            <p>We respond fast — usually within a few hours. For the quickest reply, text us directly after submitting your request.</p>
           </div>
         </div>
       </div>
@@ -324,11 +415,14 @@
   <!-- ============ CTA BANNER ============ -->
   <section class="cta-banner">
     <div class="container cta-content">
-      <h2>Ready to Move Out?</h2>
-      <p>Get your free estimate or text us to get started today.</p>
+      <h2>Move-Out Day Is Coming</h2>
+      <p>Get ahead of the rush. Get your free estimate or text us right now.</p>
       <div class="cta-btns">
         <a href="#estimator" class="btn btn-white btn-lg">Get My Estimate</a>
-        <a href="sms:+18175551234" class="btn btn-accent btn-lg">Text Us Now</a>
+        <a href="sms:+18175551234" class="btn btn-accent btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          Text Us Now
+        </a>
       </div>
     </div>
   </section>
@@ -339,10 +433,10 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo"><span class="logo-icon">&#x1F438;</span> Frog Haul</div>
-          <p>TCU dorm move-out help made simple.</p>
+          <p>TCU dorm move-out help, simplified.</p>
         </div>
         <div class="footer-contact">
-          <h4>Contact</h4>
+          <h4>Get In Touch</h4>
           <p><a href="tel:+18175551234">(817) 555-1234</a></p>
           <p><a href="mailto:hello@froghaul.com">hello@froghaul.com</a></p>
           <a href="sms:+18175551234" class="btn btn-accent btn-sm footer-text-btn">Text Us Now</a>
@@ -352,6 +446,7 @@
           <a href="#estimator">Price Estimator</a>
           <a href="#request-form">Book a Move</a>
           <a href="#faq">FAQ</a>
+          <a href="#how-it-works">How It Works</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -360,6 +455,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- ============ FLOATING TEXT BUTTON (mobile) ============ -->
+  <a href="sms:+18175551234" class="floating-text-btn" id="floatingBtn" aria-label="Text Us">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <span>Text Us</span>
+  </a>
 
   <script src="app.js"></script>
 </body>

@@ -1,29 +1,29 @@
 /* ============================================
-   FROG HAUL — App Logic
-   Price Estimator, Form Handling, FAQ, Nav
+   FROG HAUL — App Logic v2
+   Price Estimator, Form, FAQ, Nav, Animations
    ============================================ */
 
 // =============================================
 // CONFIGURATION — Edit prices, phone, email here
 // =============================================
 const CONFIG = {
-  phone: "(817) 555-1234",       // <-- Replace with your real phone number
-  phoneRaw: "+18175551234",      // <-- Replace with your real number (for sms: links)
-  email: "hello@froghaul.com",   // <-- Replace with your company email
+  phone: "(817) 555-1234",           // <-- Replace with your real phone number
+  phoneRaw: "+18175551234",          // <-- Replace with your real number (for sms: links)
+  email: "hello@froghaul.com",       // <-- Replace with your company email
   formEmail: "YOUR_EMAIL@example.com", // <-- Replace with your FormSubmit email
 };
 
-// Price list — edit prices here
-// Each item: { name, icon, price (per unit) }
+// Price list — edit prices and order here
+// popular: true  => shows a "Popular" badge on that item
 const PRICE_LIST = [
-  { name: "Couch",                icon: "\u{1F6CB}",  price: 75 },
+  { name: "Couch",                icon: "\u{1F6CB}",  price: 75, popular: true },
+  { name: "Mattress",            icon: "\u{1F6CF}",  price: 50, popular: true },
   { name: "Loveseat",            icon: "\u{1FA91}",  price: 60 },
   { name: "Chair",               icon: "\u{1FA91}",  price: 30 },
-  { name: "Mattress",            icon: "\u{1F6CF}",  price: 50 },
-  { name: "Desk",                icon: "\u{1F4DD}",  price: 45 },
+  { name: "Desk",                icon: "\u{1F4DD}",  price: 45, popular: true },
   { name: "Dresser",             icon: "\u{1F5C4}",  price: 55 },
   { name: "Mini Fridge",         icon: "\u{2744}\u{FE0F}",  price: 35 },
-  { name: "Boxes / Bins",        icon: "\u{1F4E6}",  price: 15 },
+  { name: "Boxes / Bins",        icon: "\u{1F4E6}",  price: 15, popular: true },
   { name: "Trash / Junk Haul",   icon: "\u{1F5D1}",  price: 40 },
   { name: "Heavy Item Carry Help", icon: "\u{1F4AA}", price: 50 },
 ];
@@ -34,26 +34,24 @@ document.addEventListener("DOMContentLoaded", () => {
   initEstimator();
   initForm();
   initFAQ();
+  initScrollAnimations();
+  initFloatingButton();
   updateContactLinks();
 });
 
-// ---------- Update all contact links from config ----------
+// ---------- Update contact links from config ----------
 function updateContactLinks() {
-  // Update sms links
   document.querySelectorAll('a[href^="sms:"]').forEach(link => {
     link.href = `sms:${CONFIG.phoneRaw}`;
   });
-  // Update tel links
   document.querySelectorAll('a[href^="tel:"]').forEach(link => {
     link.href = `tel:${CONFIG.phoneRaw}`;
     link.textContent = CONFIG.phone;
   });
-  // Update mailto links
   document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
     link.href = `mailto:${CONFIG.email}`;
     link.textContent = CONFIG.email;
   });
-  // Update form action
   const form = document.getElementById("requestForm");
   if (form) {
     form.action = `https://formsubmit.co/${CONFIG.formEmail}`;
@@ -66,7 +64,6 @@ function initNav() {
   const links = document.getElementById("navLinks");
   const navbar = document.getElementById("navbar");
 
-  // Hamburger toggle
   toggle.addEventListener("click", () => {
     toggle.classList.toggle("active");
     links.classList.toggle("open");
@@ -80,20 +77,28 @@ function initNav() {
     });
   });
 
-  // Scroll shadow
+  // Scroll effect — shadow + shrink
   window.addEventListener("scroll", () => {
-    navbar.classList.toggle("scrolled", window.scrollY > 10);
+    navbar.classList.toggle("scrolled", window.scrollY > 20);
   }, { passive: true });
+
+  // Close mobile nav when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".navbar")) {
+      toggle.classList.remove("active");
+      links.classList.remove("open");
+    }
+  });
 }
 
 // ---------- Price Estimator ----------
 function initEstimator() {
   const container = document.getElementById("estimatorItems");
   const totalEl = document.getElementById("totalAmount");
+  const itemCountEl = document.getElementById("totalItemsCount");
   const estimateField = document.getElementById("estimateField");
   const itemsTextarea = document.getElementById("items");
 
-  // Quantities array
   const quantities = PRICE_LIST.map(() => 0);
 
   // Render items
@@ -101,16 +106,24 @@ function initEstimator() {
     const row = document.createElement("div");
     row.className = "est-item";
     row.id = `est-item-${i}`;
+
+    const popularBadge = item.popular
+      ? `<span class="est-item-popular">Popular</span>`
+      : "";
+
     row.innerHTML = `
       <div class="est-item-info">
         <span class="est-item-icon">${item.icon}</span>
-        <div>
-          <div class="est-item-name">${item.name}</div>
+        <div class="est-item-details">
+          <div class="est-item-name-row">
+            <span class="est-item-name">${item.name}</span>
+            ${popularBadge}
+          </div>
           <div class="est-item-price">$${item.price} each</div>
         </div>
       </div>
       <div class="est-item-controls">
-        <button class="est-btn" data-action="dec" data-index="${i}" aria-label="Decrease ${item.name}">−</button>
+        <button class="est-btn" data-action="dec" data-index="${i}" aria-label="Decrease ${item.name}">&minus;</button>
         <span class="est-qty" id="qty-${i}">0</span>
         <button class="est-btn" data-action="inc" data-index="${i}" aria-label="Increase ${item.name}">+</button>
       </div>
@@ -118,7 +131,7 @@ function initEstimator() {
     container.appendChild(row);
   });
 
-  // Handle clicks
+  // Handle clicks (delegated)
   container.addEventListener("click", (e) => {
     const btn = e.target.closest(".est-btn");
     if (!btn) return;
@@ -137,6 +150,7 @@ function initEstimator() {
 
   function updateEstimator() {
     let total = 0;
+    let totalItems = 0;
     const selectedItems = [];
 
     quantities.forEach((qty, i) => {
@@ -146,13 +160,24 @@ function initEstimator() {
 
       if (qty > 0) {
         total += qty * PRICE_LIST[i].price;
+        totalItems += qty;
         selectedItems.push(`${qty}x ${PRICE_LIST[i].name}`);
       }
     });
 
+    // Animate total change
     totalEl.textContent = `$${total}`;
+    totalEl.classList.add("bump");
+    setTimeout(() => totalEl.classList.remove("bump"), 200);
 
-    // Sync to hidden form field
+    // Update item count
+    if (itemCountEl) {
+      itemCountEl.textContent = totalItems === 0
+        ? "0 items"
+        : `${totalItems} item${totalItems > 1 ? "s" : ""}`;
+    }
+
+    // Sync to form hidden field
     if (estimateField) {
       estimateField.value = `$${total}`;
     }
@@ -168,38 +193,44 @@ function initEstimator() {
 function initForm() {
   const form = document.getElementById("requestForm");
   const thankYou = document.getElementById("thankYou");
+  const submitBtn = form ? form.querySelector(".form-submit-btn") : null;
 
   if (!form) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Collect form data
+    // Disable button + show loading
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 0.8s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        Submitting...
+      `;
+    }
+
     const formData = new FormData(form);
 
-    // Send via fetch to FormSubmit
     fetch(form.action, {
       method: "POST",
       body: formData,
       headers: { "Accept": "application/json" },
     })
-      .then(response => {
-        // Show thank you regardless (FormSubmit may redirect)
-        showThankYou();
-      })
-      .catch(() => {
-        // Still show thank you — form data was sent
-        showThankYou();
-      });
+      .then(() => showThankYou())
+      .catch(() => showThankYou());
   });
 
   function showThankYou() {
     form.style.display = "none";
     thankYou.classList.add("visible");
-    // Scroll to thank you
     thankYou.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 }
+
+// Spin animation for loading
+const spinStyle = document.createElement("style");
+spinStyle.textContent = `@keyframes spin { to { transform: rotate(360deg); } }`;
+document.head.appendChild(spinStyle);
 
 // ---------- FAQ Accordion ----------
 function initFAQ() {
@@ -221,4 +252,63 @@ function initFAQ() {
       }
     });
   });
+}
+
+// ---------- Scroll Animations ----------
+function initScrollAnimations() {
+  const elements = document.querySelectorAll(".animate-on-scroll");
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // Stagger animation for siblings
+          const delay = entry.target.dataset.delay || 0;
+          setTimeout(() => {
+            entry.target.classList.add("visible");
+          }, delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  // Add stagger delays to groups of siblings
+  const groups = {};
+  elements.forEach(el => {
+    const parentId = el.parentElement.className;
+    if (!groups[parentId]) groups[parentId] = [];
+    groups[parentId].push(el);
+  });
+
+  Object.values(groups).forEach(group => {
+    group.forEach((el, i) => {
+      el.dataset.delay = i * 80;
+    });
+  });
+
+  elements.forEach(el => observer.observe(el));
+}
+
+// ---------- Floating Text Button ----------
+function initFloatingButton() {
+  const btn = document.getElementById("floatingBtn");
+  if (!btn) return;
+
+  // Show after scrolling past hero
+  const hero = document.getElementById("hero");
+  const footer = document.querySelector(".footer");
+
+  window.addEventListener("scroll", () => {
+    const heroBottom = hero ? hero.getBoundingClientRect().bottom : 0;
+    const footerTop = footer ? footer.getBoundingClientRect().top : Infinity;
+    const windowH = window.innerHeight;
+
+    const pastHero = heroBottom < 0;
+    const nearFooter = footerTop < windowH + 100;
+
+    btn.classList.toggle("visible", pastHero && !nearFooter);
+  }, { passive: true });
 }
