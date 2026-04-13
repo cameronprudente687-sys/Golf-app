@@ -9,8 +9,8 @@
 const CONFIG = {
   phone: "(781) 330-1702",            // <-- Your business phone number
   phoneRaw: "+17813301702",          // <-- Raw format for sms: and tel: links
-  email: "hello@froghaul.com",       // <-- Replace with your company email
-  formEmail: "YOUR_EMAIL@example.com", // <-- Replace with your FormSubmit email
+  email: "frogshaul@gmail.com",       // <-- Your company email
+  formEmail: "frogshaul@gmail.com",  // <-- FormSubmit receiving email
 };
 
 // Item list — edit names, icons, and order here
