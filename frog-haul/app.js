@@ -7,8 +7,8 @@
 // CONFIGURATION — Edit prices, phone, email here
 // =============================================
 const CONFIG = {
-  phone: "(817) 555-1234",           // <-- Replace with your real phone number
-  phoneRaw: "+18175551234",          // <-- Replace with your real number (for sms: links)
+  phone: "(781) 330-1702",            // <-- Your business phone number
+  phoneRaw: "+17813301702",          // <-- Raw format for sms: and tel: links
   email: "hello@froghaul.com",       // <-- Replace with your company email
   formEmail: "YOUR_EMAIL@example.com", // <-- Replace with your FormSubmit email
 };
