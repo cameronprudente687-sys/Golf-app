@@ -795,20 +795,12 @@ input, textarea, select { font-family: inherit; font-size: 1rem; }
 }
 
 .total-items-count {
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.45);
-  margin-top: 2px;
-}
-
-.total-amount {
-  font-size: 2rem;
-  font-weight: 900;
+  font-size: 1.15rem;
+  font-weight: 800;
   color: var(--white);
-  letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
   transition: transform 0.2s var(--ease-spring);
 }
-.total-amount.bump {
+.total-items-count.bump {
   transform: scale(1.1);
 }
 
@@ -1243,17 +1235,6 @@ input, textarea, select { font-family: inherit; font-size: 1rem; }
 .footer-disclaimer {
   font-size: 0.72rem !important;
   opacity: 0.6;
-}
-
-/* ============================================
-   ESTIMATOR NOTE (sub line)
-   ============================================ */
-.estimator-note-sub {
-  text-align: center;
-  font-size: 0.7rem;
-  color: var(--gray-400);
-  margin-top: -16px;
-  margin-bottom: 20px;
 }
 
 /* ============================================

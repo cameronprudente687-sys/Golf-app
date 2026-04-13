@@ -13,19 +13,19 @@ const CONFIG = {
   formEmail: "YOUR_EMAIL@example.com", // <-- Replace with your FormSubmit email
 };
 
-// Price list — edit prices and order here
+// Item list — edit names, icons, and order here
 // popular: true  => shows a "Popular" badge on that item
-const PRICE_LIST = [
-  { name: "Couch",                icon: "\u{1F6CB}",  price: 75, popular: true },
-  { name: "Mattress",            icon: "\u{1F6CF}",  price: 50, popular: true },
-  { name: "Loveseat",            icon: "\u{1FA91}",  price: 60 },
-  { name: "Chair",               icon: "\u{1FA91}",  price: 30 },
-  { name: "Desk",                icon: "\u{1F4DD}",  price: 45, popular: true },
-  { name: "Dresser",             icon: "\u{1F5C4}",  price: 55 },
-  { name: "Mini Fridge",         icon: "\u{2744}\u{FE0F}",  price: 35 },
-  { name: "Boxes / Bins",        icon: "\u{1F4E6}",  price: 15, popular: true },
-  { name: "Trash / Junk Haul",   icon: "\u{1F5D1}",  price: 40 },
-  { name: "Heavy Item Carry Help", icon: "\u{1F4AA}", price: 50 },
+const ITEM_LIST = [
+  { name: "Couch",                icon: "\u{1F6CB}",  popular: true },
+  { name: "Mattress",            icon: "\u{1F6CF}",  popular: true },
+  { name: "Loveseat",            icon: "\u{1FA91}" },
+  { name: "Chair",               icon: "\u{1FA91}" },
+  { name: "Desk",                icon: "\u{1F4DD}",  popular: true },
+  { name: "Dresser",             icon: "\u{1F5C4}" },
+  { name: "Mini Fridge",         icon: "\u{2744}\u{FE0F}" },
+  { name: "Boxes / Bins",        icon: "\u{1F4E6}",  popular: true },
+  { name: "Trash / Junk Haul",   icon: "\u{1F5D1}" },
+  { name: "Heavy Item Carry Help", icon: "\u{1F4AA}" },
 ];
 // =============================================
 
@@ -91,18 +91,16 @@ function initNav() {
   });
 }
 
-// ---------- Price Estimator ----------
+// ---------- Item Selector ----------
 function initEstimator() {
   const container = document.getElementById("estimatorItems");
-  const totalEl = document.getElementById("totalAmount");
   const itemCountEl = document.getElementById("totalItemsCount");
-  const estimateField = document.getElementById("estimateField");
   const itemsTextarea = document.getElementById("items");
 
-  const quantities = PRICE_LIST.map(() => 0);
+  const quantities = ITEM_LIST.map(() => 0);
 
   // Render items
-  PRICE_LIST.forEach((item, i) => {
+  ITEM_LIST.forEach((item, i) => {
     const row = document.createElement("div");
     row.className = "est-item";
     row.id = `est-item-${i}`;
@@ -119,7 +117,6 @@ function initEstimator() {
             <span class="est-item-name">${item.name}</span>
             ${popularBadge}
           </div>
-          <div class="est-item-price">$${item.price} each</div>
         </div>
       </div>
       <div class="est-item-controls">
@@ -145,11 +142,10 @@ function initEstimator() {
       quantities[idx]--;
     }
 
-    updateEstimator();
+    updateItems();
   });
 
-  function updateEstimator() {
-    let total = 0;
+  function updateItems() {
     let totalItems = 0;
     const selectedItems = [];
 
@@ -159,30 +155,22 @@ function initEstimator() {
       row.classList.toggle("active", qty > 0);
 
       if (qty > 0) {
-        total += qty * PRICE_LIST[i].price;
         totalItems += qty;
-        selectedItems.push(`${qty}x ${PRICE_LIST[i].name}`);
+        selectedItems.push(`${qty}x ${ITEM_LIST[i].name}`);
       }
     });
 
-    // Animate total change
-    totalEl.textContent = `$${total}`;
-    totalEl.classList.add("bump");
-    setTimeout(() => totalEl.classList.remove("bump"), 200);
-
-    // Update item count
+    // Update item count display
     if (itemCountEl) {
-      itemCountEl.textContent = totalItems === 0
+      const text = totalItems === 0
         ? "0 items"
         : `${totalItems} item${totalItems > 1 ? "s" : ""}`;
+      itemCountEl.textContent = text;
+      itemCountEl.classList.add("bump");
+      setTimeout(() => itemCountEl.classList.remove("bump"), 200);
     }
 
-    // Sync to form hidden field
-    if (estimateField) {
-      estimateField.value = `$${total}`;
-    }
-
-    // Auto-fill items textarea
+    // Auto-fill items textarea on the form
     if (itemsTextarea) {
       itemsTextarea.value = selectedItems.join(", ");
     }
