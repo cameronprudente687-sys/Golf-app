@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frog Haul — TCU Dorm Move-Out Help</title>
+  <meta name="description" content="Fast, affordable dorm move-out help for TCU students. Get an instant estimate and book your move today.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">&#x1F438;</span> Frog Haul
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#estimator">Pricing</a>
+        <a href="#request-form">Book Now</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a href="sms:+18175551234" class="btn btn-sm btn-accent nav-cta">Text Us</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Fast, Affordable Dorm Move-Out Help for TCU Students</h1>
+        <p class="hero-sub">We help TCU students move furniture, junk, and heavy items out of dorms with simple pricing and easy request booking.</p>
+        <div class="hero-btns">
+          <a href="#estimator" class="btn btn-primary btn-lg">Get My Estimate</a>
+          <a href="sms:+18175551234" class="btn btn-accent btn-lg">Text Us Now</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <!-- Moving-themed SVG illustration -->
+        <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-illustration">
+          <!-- Floor -->
+          <rect x="20" y="260" width="360" height="4" rx="2" fill="#E8E0F0"/>
+          <!-- Large box -->
+          <rect x="60" y="160" width="120" height="100" rx="8" fill="#4D1979" opacity="0.9"/>
+          <rect x="60" y="160" width="120" height="20" rx="8" fill="#6B2FA0"/>
+          <line x1="100" y1="195" x2="140" y2="195" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="205" x2="130" y2="205" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+          <!-- Medium box -->
+          <rect x="200" y="190" width="90" height="70" rx="6" fill="#7B3FB8" opacity="0.85"/>
+          <rect x="200" y="190" width="90" height="14" rx="6" fill="#9B5FD8"/>
+          <line x1="230" y1="215" x2="260" y2="215" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          <!-- Small box on top -->
+          <rect x="215" y="140" width="60" height="50" rx="5" fill="#A66DD8" opacity="0.8"/>
+          <rect x="215" y="140" width="60" height="12" rx="5" fill="#BF8DE8"/>
+          <!-- Couch shape -->
+          <rect x="80" y="110" width="80" height="50" rx="12" fill="#E8D5F5" opacity="0.7"/>
+          <rect x="70" y="130" width="14" height="30" rx="7" fill="#D4B8E8" opacity="0.7"/>
+          <rect x="160" y="130" width="14" height="30" rx="7" fill="#D4B8E8" opacity="0.7"/>
+          <!-- Dolly / hand truck -->
+          <rect x="310" y="180" width="8" height="80" rx="2" fill="#4D1979"/>
+          <rect x="300" y="175" width="28" height="8" rx="4" fill="#4D1979"/>
+          <circle cx="308" cy="264" r="12" fill="#6B2FA0" stroke="#4D1979" stroke-width="3"/>
+          <circle cx="326" cy="264" r="12" fill="#6B2FA0" stroke="#4D1979" stroke-width="3"/>
+          <rect x="302" y="220" width="24" height="40" rx="4" fill="#9B5FD8" opacity="0.6"/>
+          <!-- Decorative circles -->
+          <circle cx="340" cy="120" r="20" fill="#F3EAFC" opacity="0.5"/>
+          <circle cx="50" cy="140" r="15" fill="#F3EAFC" opacity="0.4"/>
+          <circle cx="280" cy="100" r="10" fill="#E8D5F5" opacity="0.5"/>
+          <!-- Frog icon on large box -->
+          <text x="120" y="240" font-size="32" text-anchor="middle">&#x1F438;</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST BAR ============ -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">&#x1F3EB;</div>
+          <span>TCU Dorms Only</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#x1F4B0;</div>
+          <span>Affordable Student Pricing</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#x26A1;</div>
+          <span>Fast Response</span>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#x1F4AA;</div>
+          <span>Heavy Item Help</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section how-it-works" id="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon">&#x1F4CB;</div>
+          <h3>Select Your Items</h3>
+          <p>Pick what you need moved using our simple estimator.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon">&#x1F4B2;</div>
+          <h3>Get an Instant Estimate</h3>
+          <p>See your estimated price update live as you add items.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon">&#x2705;</div>
+          <h3>Submit Your Request</h3>
+          <p>Fill out a quick form and we'll get back to you fast.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICE ESTIMATOR ============ -->
+  <section class="section estimator-section" id="estimator">
+    <div class="container">
+      <h2 class="section-title">Price Estimator</h2>
+      <p class="section-subtitle">Add your items below to get an instant estimate.</p>
+
+      <div class="estimator-card">
+        <div class="estimator-items" id="estimatorItems">
+          <!-- Items are generated by JS -->
+        </div>
+
+        <div class="estimator-total-bar">
+          <div class="total-label">Estimated Total</div>
+          <div class="total-amount" id="totalAmount">$0</div>
+        </div>
+        <p class="estimator-note">Final price may vary depending on item size, stairs, and difficulty.</p>
+
+        <a href="#request-form" class="btn btn-primary btn-lg estimator-cta">Book This Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REQUEST FORM ============ -->
+  <section class="section form-section" id="request-form">
+    <div class="container">
+      <h2 class="section-title">Request a Move</h2>
+      <p class="section-subtitle">Fill out the form below and we'll get back to you quickly.</p>
+
+      <div class="form-card">
+        <form id="requestForm" action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST">
+          <!-- FormSubmit config (hidden fields) -->
+          <input type="hidden" name="_subject" value="New Frog Haul Move Request">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="">
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="Full Name" placeholder="Your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number <span class="required-star">*</span></label>
+              <input type="tel" id="phone" name="Phone" placeholder="(817) 555-1234" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="Email" placeholder="you@tcu.edu">
+            </div>
+
+            <div class="form-group">
+              <label for="dorm">Dorm / Building</label>
+              <input type="text" id="dorm" name="Dorm/Building" placeholder="e.g. Clark Hall">
+            </div>
+
+            <div class="form-group">
+              <label for="room">Room Number</label>
+              <input type="text" id="room" name="Room Number" placeholder="e.g. 312">
+            </div>
+
+            <div class="form-group">
+              <label for="moveDate">Requested Date</label>
+              <input type="date" id="moveDate" name="Requested Date" required>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="items">Items to Move</label>
+              <textarea id="items" name="Items to Move" rows="3" placeholder="e.g. 1 couch, 2 boxes, 1 mini fridge"></textarea>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="destination">Destination / Where Items Are Going</label>
+              <input type="text" id="destination" name="Destination" placeholder="e.g. storage unit on Berry St, dumpster, parent's truck">
+            </div>
+
+            <div class="form-group full-width">
+              <label for="notes">Special Instructions / Notes</label>
+              <textarea id="notes" name="Special Instructions" rows="2" placeholder="Anything else we should know?"></textarea>
+            </div>
+          </div>
+
+          <!-- Hidden field for estimate -->
+          <input type="hidden" id="estimateField" name="Estimated Total" value="$0">
+
+          <p class="form-helper">Want to coordinate an exact time? Text us after submitting your request.</p>
+
+          <button type="submit" class="btn btn-primary btn-lg form-submit-btn">Submit Request</button>
+        </form>
+
+        <!-- Thank you message (hidden by default) -->
+        <div class="thank-you-message" id="thankYou">
+          <div class="thank-you-icon">&#x1F389;</div>
+          <h3>Request Submitted!</h3>
+          <p>Thanks for choosing Frog Haul. We'll be in touch soon!</p>
+          <p class="thank-you-sub">Want a specific time? Text us now:</p>
+          <a href="sms:+18175551234" class="btn btn-accent btn-lg">Text Us Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY CHOOSE US ============ -->
+  <section class="section why-section" id="why-us">
+    <div class="container">
+      <h2 class="section-title">Why Students Choose Frog Haul</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">&#x1F3EB;</div>
+          <h4>Built for TCU Dorm Move-Outs</h4>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">&#x1F4B0;</div>
+          <h4>Affordable Pricing</h4>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">&#x1F4CA;</div>
+          <h4>Easy Estimate Tool</h4>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">&#x1F4AA;</div>
+          <h4>Heavy Lifting Help</h4>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">&#x1F4AC;</div>
+          <h4>Fast Communication</h4>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">&#x1F4F1;</div>
+          <h4>Simple Booking Process</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Do you only serve TCU dorms?
+            <span class="faq-chevron">&#x25BC;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! Frog Haul is built specifically for TCU dorm students. We know the campus, the buildings, and exactly what students need during move-out.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How do I schedule an exact time?
+            <span class="faq-chevron">&#x25BC;</span>
+          </button>
+          <div class="faq-answer">
+            <p>When you submit your request, just pick the day you need us. If you want to coordinate a specific time, text us directly and we'll work it out with you.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How is pricing calculated?
+            <span class="faq-chevron">&#x25BC;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Our estimator gives you a starting price based on the items you select. Final price may vary slightly based on item size, stairs, and difficulty of the move.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Can you move junk and heavy items too?
+            <span class="faq-chevron">&#x25BC;</span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. Junk removal, trash haul, heavy furniture — we handle it all. Just let us know what you've got and we'll take care of it.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            When will I hear back after I submit?
+            <span class="faq-chevron">&#x25BC;</span>
+          </button>
+          <div class="faq-answer">
+            <p>We respond fast — usually within a few hours. For the quickest response, text us directly after submitting your request.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BANNER ============ -->
+  <section class="cta-banner">
+    <div class="container cta-content">
+      <h2>Ready to Move Out?</h2>
+      <p>Get your free estimate or text us to get started today.</p>
+      <div class="cta-btns">
+        <a href="#estimator" class="btn btn-white btn-lg">Get My Estimate</a>
+        <a href="sms:+18175551234" class="btn btn-accent btn-lg">Text Us Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><span class="logo-icon">&#x1F438;</span> Frog Haul</div>
+          <p>TCU dorm move-out help made simple.</p>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p><a href="tel:+18175551234">(817) 555-1234</a></p>
+          <p><a href="mailto:hello@froghaul.com">hello@froghaul.com</a></p>
+          <a href="sms:+18175551234" class="btn btn-accent btn-sm footer-text-btn">Text Us Now</a>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="#estimator">Price Estimator</a>
+          <a href="#request-form">Book a Move</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Frog Haul. All rights reserved.</p>
+        <p class="footer-disclaimer">Subject to availability. Final price may vary depending on item size and difficulty.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
