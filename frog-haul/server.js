@@ -16,27 +16,31 @@ app.use(express.static(path.join(__dirname)));
 
 // ---------- Email endpoint ----------
 app.post("/api/submit", async (req, res) => {
+  // Debug: log the incoming payload
+  console.log("[/api/submit] Received body:", JSON.stringify(req.body, null, 2));
+
   const {
     fullName,
     phone,
     email,
     dorm,
     houseName,
-    room,
-    moveDate,
+    roomNumber,
+    requestedDate,
     items,
     specialTasks,
-    notes,
+    specialInstructions,
   } = req.body;
 
   // Validate required fields
   const errors = [];
-  if (!fullName || !fullName.trim()) errors.push("Full Name is required.");
-  if (!phone || !phone.trim()) errors.push("Phone Number is required.");
-  if (!dorm || !dorm.trim()) errors.push("Dorm / Building is required.");
-  if (!moveDate || !moveDate.trim()) errors.push("Requested Date is required.");
+  if (!fullName || !fullName.trim()) errors.push("fullName is required.");
+  if (!phone || !phone.trim()) errors.push("phone is required.");
+  if (!dorm || !dorm.trim()) errors.push("dorm is required.");
+  if (!requestedDate || !requestedDate.trim()) errors.push("requestedDate is required.");
 
   if (errors.length > 0) {
+    console.log("[/api/submit] Validation failed:", errors);
     return res.status(400).json({ success: false, message: errors.join(" ") });
   }
 
@@ -53,11 +57,11 @@ app.post("/api/submit", async (req, res) => {
   }
 
   lines.push(
-    `Room Number: ${room || "Not provided"}`,
-    `Requested Date: ${moveDate}`,
+    `Room Number: ${roomNumber || "Not provided"}`,
+    `Requested Date: ${requestedDate}`,
     `Items to Move: ${items || "None selected"}`,
     `Special Tasks: ${specialTasks || "None"}`,
-    `Special Instructions: ${notes || "None"}`
+    `Special Instructions: ${specialInstructions || "None"}`
   );
 
   const emailBody = lines.join("\n");
@@ -71,11 +75,11 @@ app.post("/api/submit", async (req, res) => {
       <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;color:#666;">Email</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${email || "Not provided"}</td></tr>
       <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;color:#666;">Dorm / Building</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${dorm}</td></tr>
       ${dorm === "Greek Life Housing" && houseName ? `<tr><td style="padding:8px 12px;border-bottom:1px solid #eee;color:#666;">House Name</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${houseName}</td></tr>` : ""}
-      <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;color:#666;">Room Number</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${room || "Not provided"}</td></tr>
-      <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;color:#666;">Requested Date</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-weight:600;">${moveDate}</td></tr>
+      <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;color:#666;">Room Number</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${roomNumber || "Not provided"}</td></tr>
+      <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;color:#666;">Requested Date</td><td style="padding:8px 12px;border-bottom:1px solid #eee;font-weight:600;">${requestedDate}</td></tr>
       <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;color:#666;">Items to Move</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${items || "None selected"}</td></tr>
       <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;color:#666;">Special Tasks</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${specialTasks || "None"}</td></tr>
-      <tr><td style="padding:8px 12px;color:#666;">Special Instructions</td><td style="padding:8px 12px;">${notes || "None"}</td></tr>
+      <tr><td style="padding:8px 12px;color:#666;">Special Instructions</td><td style="padding:8px 12px;">${specialInstructions || "None"}</td></tr>
     </table>
   `;
 
@@ -98,9 +102,10 @@ app.post("/api/submit", async (req, res) => {
       html: htmlBody,
     });
 
+    console.log("[/api/submit] Email sent successfully.");
     return res.json({ success: true, message: "Request submitted successfully." });
   } catch (err) {
-    console.error("Email send error:", err.message);
+    console.error("[/api/submit] Email send error:", err.message);
     return res.status(500).json({
       success: false,
       message: "Something went wrong sending your request. Please text us instead.",

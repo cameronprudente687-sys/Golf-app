@@ -218,11 +218,11 @@ function initForm() {
       email: form.querySelector("#email").value.trim(),
       dorm: form.querySelector("#dorm").value,
       houseName: (form.querySelector("#greekHouse") || {}).value || "",
-      room: form.querySelector("#room").value.trim(),
-      moveDate: form.querySelector("#moveDate").value,
+      roomNumber: form.querySelector("#room").value.trim(),
+      requestedDate: form.querySelector("#moveDate").value,
       items: form.querySelector("#items").value,
       specialTasks: form.querySelector("#destination").value.trim(),
-      notes: form.querySelector("#notes").value.trim(),
+      specialInstructions: form.querySelector("#notes").value.trim(),
     };
 
     fetch("/api/submit", {
