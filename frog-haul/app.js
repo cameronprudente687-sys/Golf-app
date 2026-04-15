@@ -184,6 +184,15 @@ function initForm() {
 
   if (!form) return;
 
+  // Greek Life Housing conditional field
+  const dormSelect = document.getElementById("dorm");
+  const greekGroup = document.getElementById("greekHouseGroup");
+  if (dormSelect && greekGroup) {
+    dormSelect.addEventListener("change", () => {
+      greekGroup.style.display = dormSelect.value === "Greek Life Housing" ? "block" : "none";
+    });
+  }
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 

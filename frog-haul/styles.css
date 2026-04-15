@@ -1301,6 +1301,41 @@ input, textarea, select { font-family: inherit; font-size: 1rem; }
   color: var(--gray-400);
 }
 
+/* Conditional field (e.g. Greek house name) */
+.form-group-conditional {
+  margin-top: 12px;
+}
+.form-group-conditional label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+.form-group-conditional input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  background: var(--gray-50);
+  color: var(--gray-900);
+}
+.form-group-conditional input:hover {
+  border-color: var(--gray-300);
+}
+.form-group-conditional input:focus {
+  outline: none;
+  border-color: var(--purple-500);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(123,63,184,0.1);
+}
+.form-group-conditional input::placeholder {
+  color: var(--gray-400);
+}
+
 /* Field hint (below date input) */
 .field-hint {
   display: block;
