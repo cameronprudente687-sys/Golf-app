@@ -115,4 +115,7 @@ app.post("/api/submit", async (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Frog Haul server running at http://localhost:${PORT}`);
+  console.log(`[env] EMAIL_USER: ${process.env.EMAIL_USER ? process.env.EMAIL_USER : "NOT SET"}`);
+  console.log(`[env] EMAIL_PASS: ${process.env.EMAIL_PASS ? "SET (" + process.env.EMAIL_PASS.length + " chars)" : "NOT SET"}`);
+  console.log(`[env] QUOTE_TO:   ${process.env.QUOTE_TO || "NOT SET (will default to frogshaul@gmail.com)"}`);
 });
