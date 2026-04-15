@@ -51,10 +51,7 @@ function updateContactLinks() {
     link.href = `mailto:${CONFIG.email}`;
     link.textContent = CONFIG.email;
   });
-  const form = document.getElementById("requestForm");
-  if (form) {
-    form.action = `https://formsubmit.co/${CONFIG.formEmail}`;
-  }
+  // Form action is now handled by /api/submit endpoint
 }
 
 // ---------- Navbar ----------
@@ -193,8 +190,17 @@ function initForm() {
     });
   }
 
+  const formError = document.getElementById("formError");
+  const submitBtnOriginalHTML = submitBtn ? submitBtn.innerHTML : "";
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    // Hide previous error
+    if (formError) {
+      formError.style.display = "none";
+      formError.textContent = "";
+    }
 
     // Disable button + show loading
     if (submitBtn) {
@@ -205,21 +211,55 @@ function initForm() {
       `;
     }
 
-    const formData = new FormData(form);
+    // Collect form data as JSON
+    const payload = {
+      fullName: form.querySelector("#fullName").value.trim(),
+      phone: form.querySelector("#phone").value.trim(),
+      email: form.querySelector("#email").value.trim(),
+      dorm: form.querySelector("#dorm").value,
+      houseName: (form.querySelector("#greekHouse") || {}).value || "",
+      room: form.querySelector("#room").value.trim(),
+      moveDate: form.querySelector("#moveDate").value,
+      items: form.querySelector("#items").value,
+      specialTasks: form.querySelector("#destination").value.trim(),
+      notes: form.querySelector("#notes").value.trim(),
+    };
 
-    fetch(form.action, {
+    fetch("/api/submit", {
       method: "POST",
-      body: formData,
-      headers: { "Accept": "application/json" },
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
     })
-      .then(() => showThankYou())
-      .catch(() => showThankYou());
+      .then(r => r.json().then(data => ({ ok: r.ok, data })))
+      .then(({ ok, data }) => {
+        if (ok && data.success) {
+          showThankYou();
+        } else {
+          showError(data.message || "Something went wrong. Please try again or text us.");
+        }
+      })
+      .catch(() => {
+        showError("Could not reach the server. Please text us instead.");
+      });
   });
 
   function showThankYou() {
     form.style.display = "none";
+    if (formError) formError.style.display = "none";
     thankYou.classList.add("visible");
     thankYou.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  function showError(msg) {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = submitBtnOriginalHTML;
+    }
+    if (formError) {
+      formError.textContent = msg;
+      formError.style.display = "block";
+      formError.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
   }
 }
 

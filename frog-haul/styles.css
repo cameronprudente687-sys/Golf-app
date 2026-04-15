@@ -834,6 +834,21 @@ input, textarea, select { font-family: inherit; font-size: 1rem; }
   background: var(--white);
 }
 
+/* Form error message */
+.form-error {
+  display: none;
+  padding: 14px 18px;
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: var(--radius-md);
+  color: #991B1B;
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
 .form-card {
   max-width: 640px;
   margin: 0 auto;

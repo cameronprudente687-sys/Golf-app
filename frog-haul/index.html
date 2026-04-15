@@ -170,13 +170,10 @@
       </div>
 
       <div class="form-card">
-        <form id="requestForm" action="https://formsubmit.co/frogshaul@gmail.com" method="POST">
-          <!-- FormSubmit config -->
-          <input type="hidden" name="_subject" value="New Frog Haul Move Request">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="">
+        <!-- Error message (hidden by default) -->
+        <div class="form-error" id="formError"></div>
 
+        <form id="requestForm">
           <!-- STEP 1: Item selection -->
           <div class="form-step-label">
             <span class="form-step-num">1</span>
