@@ -1475,11 +1475,19 @@ input, textarea, select { font-family: inherit; font-size: 1rem; }
 /* ============================================
    CTA MICRO TEXT
    ============================================ */
-.cta-micro {
-  margin-top: 16px;
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.4);
-  font-weight: 500;
+.cta-phone {
+  display: flex;
+  align-items: center;
+}
+.cta-phone a {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+.cta-phone a:hover {
+  color: var(--white);
 }
 
 /* ============================================

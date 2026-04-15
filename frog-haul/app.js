@@ -18,7 +18,6 @@ const CONFIG = {
 const ITEM_LIST = [
   { name: "Couch",                icon: "\u{1F6CB}",  popular: true },
   { name: "Mattress",            icon: "\u{1F6CF}",  popular: true },
-  { name: "Loveseat",            icon: "\u{1FA91}" },
   { name: "Chair",               icon: "\u{1FA91}" },
   { name: "Desk",                icon: "\u{1F4DD}",  popular: true },
   { name: "Dresser",             icon: "\u{1F5C4}" },
